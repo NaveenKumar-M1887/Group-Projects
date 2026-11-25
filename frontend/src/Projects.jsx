@@ -3,7 +3,7 @@ function Projects() {
   return (
     <div>
       <h1>Welcome to Projects Page</h1>
-      <p>This is the Projects page..</p>
+      <p>This is the Projects page.</p>
     </div>
   )
 }
