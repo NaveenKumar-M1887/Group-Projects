@@ -1,18 +1,26 @@
 import { useState } from 'react'
 import '../App.css'
+import { useNavigate } from 'react-router-dom'
 function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const handleSubmit = (e) => {
+  const [formdata,setFormdata]=useState({username:'',password:''})
+  const navigate=useNavigate();
+  //const [email, setEmail] = useState('')
+  //const [password, setPassword] = useState('')
+    function handlchange(e){setFormdata({
+      ...formdata,[e.target.name]:e.target.value})}
+    //console.log('Email:', email)
+    //console.log('Password:', password)
+    const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Email:', email)
-    console.log('Password:', password)
-  }
+    alert("Login SuccessFully...")
+    navigate("/Dashboard",{state:formdata})
+    console.log('Email :',formdata.username)
+   console.log('password :',formdata.password)}
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="email" required placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" required placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="text" name="username" required placeholder="Enter username" value={formdata.username} onChange={handlchange}/>
+        <input type="password" name="password" required placeholder="Enter Password" value={formdata.password} onChange={handlchange} />
         <button type="submit">Submit</button>
       </form>
     </div>

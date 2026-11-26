@@ -1,9 +1,16 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom"
 function Dashboard() {
+    const location=useLocation();
+    const [userdata,setUserdata]=useState();
+    function displaydata(){
+        setUserdata(location.state);
+        console.log(userdata)
+    }
   return (
-    <div>
-      <h1>Welcome Teams</h1>
-      <p>This is the Dashboard page...</p>
-    </div>
+   <>
+   <button onClick={displaydata}>button</button>
+   </>
   )
 }
 export default Dashboard
