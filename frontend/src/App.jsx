@@ -7,10 +7,12 @@ import Login from '../src/pages/Login'
 import Projects from '../src/pages/Projects'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Register from './pages/Register'
 function App() {
   return (
     <BrowserRouter>
     <Routes>
+      <Route path ="/" element={<Login/>}/>
       <Route path ="/Login" element={<Login/>}/>
       <Route path ="/Projects" element={<Projects/>}/>
       <Route path ="/Team" element={<Team/>}/>
@@ -18,6 +20,8 @@ function App() {
       <Route path ="/Dashboard" element={<Dashboard/>}/>
       <Route path ="/Calendar" element={<Calendar/>}/>
       <Route path ="/Settings" element={<Settings/>}/>
+      <Route path ="/Register" element={<Register/>}/>
+
 
     </Routes>
     </BrowserRouter>
