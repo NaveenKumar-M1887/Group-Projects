@@ -8,6 +8,10 @@ import Projects from '../src/pages/Projects'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Register from './pages/Register'
+import AdminLayout from './pages/Admin/AdminLayout'
+import AdminDashboard from './pages/Admin/admindashboard'
+import AdminSettings from './pages/Admin/settings'
+import UserDetails from './pages/Admin/userdetails'
 function App() {
   return (
     <BrowserRouter>
@@ -21,8 +25,11 @@ function App() {
       <Route path ="/Calendar" element={<Calendar/>}/>
       <Route path ="/Settings" element={<Settings/>}/>
       <Route path ="/Register" element={<Register/>}/>
-
-
+      <Route path="/Admin" element={<AdminLayout />}>
+        <Route path="admindashboard" element={<AdminDashboard />} />
+        <Route path="settings" element={<AdminSettings />} />
+        <Route path="userdetails" element={<UserDetails />} />
+      </Route>
     </Routes>
     </BrowserRouter>
   )

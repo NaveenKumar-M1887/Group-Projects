@@ -1,26 +1,63 @@
 import { useState } from 'react'
-import '../App.css'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom';
 function Login() {
-  const [formdata,setFormdata]=useState({username:'',password:''})
+ // const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
+ // const [formdata,setFormdata]=useState({
+ //   username:"",
+  //  password:""
+  // })
+  const [logindata,setLogindata]=useState({
+    username:"",
+    password:""
+  })
   const navigate=useNavigate();
-  //const [email, setEmail] = useState('')
-  //const [password, setPassword] = useState('')
-    function handleChange(e){setFormdata({
-      ...formdata,[e.target.name]:e.target.value})}
-    //console.log('Email:', email)
-    //console.log('Password:', password)
-    const handleSubmit = (e) => {
-    e.preventDefault()
-    alert("Login SuccessFully...")
-    navigate("/Dashboard",{state:formdata})
-    console.log('Email :',formdata.username)
-   console.log('password :',formdata.password)}
+const location=useLocation();
+/*  function handleChange(e){
+    e.preventDefault();
+    setFormdata({
+      ...formdata,
+      [e.target.name]:e.target.value
+    })
+  }
+    */
+    function handleChange(e){
+    e.preventDefault();
+    setLogindata({
+      ...logindata,
+      [e.target.name]:e.target.value
+    })
+  }
+  function handlesubmit(event) {
+    event.preventDefault()
+    const registerdata = location.state;
+    console.log("Login Page:", logindata);
+    console.log("Registration Page:", registerdata);
+    if (
+  registerdata &&
+  logindata.username === registerdata.email &&
+  logindata.password === registerdata.password
+) {
+  navigate("/dashboard", {
+    state: logindata
+  });
+} else {
+  alert("Invalid Email or Password");
+}
+   // console.log("Email:", email)
+   // console.log("Password:", password)
+   // alert("Login button clicked successfully!")
+    //navigate("/dashboard",{
+    //  state:formdata
+    //})
+  }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="username" required placeholder="Enter username" value={formdata.username} onChange={handleChange}/>
-        <input type="password" name="password" required placeholder="Enter Password" value={formdata.password} onChange={handleChange} />
+      <form onSubmit={handlesubmit}>
+        <label>Username</label><br/>
+        <input type="text" placeholder="Enter username"  name="username" onChange={handleChange}/><br/><br/>
+        <label>Password</label><br/>
+        <input type="password" placeholder="Enter password"  name="password" onChange={handleChange}/><br/><br/>
         <button type="submit">Submit</button>
       </form>
     </div>
