@@ -6,7 +6,7 @@ function Login() {
   const navigate=useNavigate();
   //const [email, setEmail] = useState('')
   //const [password, setPassword] = useState('')
-    function handlchange(e){setFormdata({
+    function handleChange(e){setFormdata({
       ...formdata,[e.target.name]:e.target.value})}
     //console.log('Email:', email)
     //console.log('Password:', password)
@@ -19,8 +19,8 @@ function Login() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="username" required placeholder="Enter username" value={formdata.username} onChange={handlchange}/>
-        <input type="password" name="password" required placeholder="Enter Password" value={formdata.password} onChange={handlchange} />
+        <input type="text" name="username" required placeholder="Enter username" value={formdata.username} onChange={handleChange}/>
+        <input type="password" name="password" required placeholder="Enter Password" value={formdata.password} onChange={handleChange} />
         <button type="submit">Submit</button>
       </form>
     </div>
