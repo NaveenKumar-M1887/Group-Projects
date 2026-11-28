@@ -38,7 +38,7 @@ const location=useLocation();
   logindata.username === registerdata.email &&
   logindata.password === registerdata.password
 ) {
-  navigate("/dashboard", {
+  navigate("/Admin/AdminDashboard", {
     state: logindata
   });
 } else {

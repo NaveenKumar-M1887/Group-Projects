@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Registerschema } from "../Components/Registerschema";
+import { Registerschema } from "../Components/FormSchema/Registerschema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

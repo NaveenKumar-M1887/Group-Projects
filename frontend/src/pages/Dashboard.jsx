@@ -10,7 +10,11 @@ function Dashboard() {
     useEffect(()=>{
       setUserdata(location.state);
       console.log("Hello");
-    },[useState])
+    },[])
+    const checkendpoint= async()=>{
+    const response = await API.get("/api/get")
+    console.log(response.data)
+   }
   return (
    <>
    <button onClick={userdata}>button</button>
