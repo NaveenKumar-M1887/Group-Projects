@@ -26,9 +26,9 @@ function App() {
       <Route path ="/Settings" element={<Settings/>}/>
       <Route path ="/Register" element={<Register/>}/>
       <Route path="/Admin" element={<AdminLayout />}>
-        <Route path="admindashboard" element={<AdminDashboard />} />
-        <Route path="settings" element={<AdminSettings />} />
-        <Route path="userdetails" element={<UserDetails />} />
+      <Route path="admindashboard" element={<AdminDashboard />} />
+      <Route path="settings" element={<AdminSettings />} />
+      <Route path="userdetails" element={<UserDetails />} />
       </Route>
     </Routes>
     </BrowserRouter>
